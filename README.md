@@ -1,17 +1,21 @@
 # Vehicle Manufacturers Catalog
 
-Web application that lists manufacturers and details about that.
+Web application that lists vehicle manufacturers.
 
 [Demo](https://jeorgivamjunior.github.io/vehicle-manufacturers-catalog)
 
 ## Pages
-- [ ] Manufacturers List
-- [ ] Manufacturers Detail
-- [ ] Maker List
-- [ ] Model List
+- [✅] Manufacturers List
+- [✅] Manufacturers Detail
+- [✅] Maker List
+- [✅] Model List
+- [✅] Testing example
 
 ## Depedencies
 - React (https://reactjs.org/)
+- MUI (https://mui.com/)
+- Emotion (https://emotion.sh/)
+- Axios (https://axios-http.com/)
 
 ## Technical notes
 Architectural decisions to avoid complexity and have clear and understandable code.
