@@ -1,11 +1,7 @@
-export interface ManufacturerResponse {
-  Country: string;
-  Mfr_ID: number;
-  Mfr_CommonName: string;
-}
+import { ManufacturerProps } from '../../../../types';
 
 export interface useManufacturerRequestProps {
-  data: ManufacturerResponse[];
+  data: ManufacturerProps[];
   count: number;
   loading: boolean;
   handlePageChange: (_: React.ChangeEvent<unknown>, page: number) => void;

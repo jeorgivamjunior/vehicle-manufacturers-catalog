@@ -1,0 +1,1 @@
+export { ManufacturerProps } from './ManufacturerProps';

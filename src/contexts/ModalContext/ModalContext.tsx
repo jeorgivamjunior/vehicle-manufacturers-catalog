@@ -22,7 +22,7 @@ export const ModalContextProvider: FC<PropsWithChildren> = ({ children }) => {
       <Dialog
         TransitionComponent={Transition}
         fullWidth
-        maxWidth="sm"
+        maxWidth="md"
         fullScreen={fullScreen}
         open={open}
         onClose={toggleOpen}
