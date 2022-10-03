@@ -45,7 +45,7 @@ export const ManufacturerGrid: FC = () => {
           Pagination,
         }}
         page={page}
-        rowCount={count}
+        rowCount={count || 0}
         disableColumnMenu
         disableSelectionOnClick
         paginationMode="server"

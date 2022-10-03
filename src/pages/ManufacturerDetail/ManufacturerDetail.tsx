@@ -6,7 +6,7 @@ import { DialogContent, DialogTitle, IconButton, Typography } from '@mui/materia
 
 import { useModal } from '../../hooks';
 import { ManufacturerProps } from '../../types';
-import { Detail, Makers } from './components';
+import { Detail, MakerList } from './components';
 import { ManufacturerDetailContext, ManufacturerDetailContextProvider } from './contexts';
 
 export const ManufacturerDetail: FC<{ manufacturer: ManufacturerProps }> = ({ manufacturer }) => {
@@ -35,7 +35,7 @@ export const ManufacturerDetail: FC<{ manufacturer: ManufacturerProps }> = ({ ma
       </DialogTitle>
       <DialogContent>
         <Detail />
-        <Makers />
+        <MakerList />
       </DialogContent>
     </>
   );

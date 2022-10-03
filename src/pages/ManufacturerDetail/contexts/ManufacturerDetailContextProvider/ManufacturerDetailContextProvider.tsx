@@ -10,15 +10,23 @@ export const ManufacturerDetailContextProvider: FC<PropsWithChildren> = ({ child
   const [manufacturer, setManufacturer] = useState<ManufacturerProps>();
   const [makerId, setMakerId] = useState<number>();
 
-  const { data: makers } = useMakerRequest(manufacturer?.Mfr_ID);
-  const { data: models } = useModelRequest(makerId);
+  const { data: makers, loading: makersLoading } = useMakerRequest(manufacturer?.Mfr_ID);
+  const { data: models, loading: modelsLoading } = useModelRequest(makerId);
 
   const handleManufacturerChange = (manufacturer: ManufacturerProps): void => setManufacturer(manufacturer);
   const handleMakerChange = (makerId: number): void => setMakerId(makerId);
 
   return (
     <ManufacturerDetailContext.Provider
-      value={{ handleManufacturerChange, manufacturer, makers, handleMakerChange, models }}
+      value={{
+        handleManufacturerChange,
+        manufacturer,
+        makers,
+        makersLoading,
+        handleMakerChange,
+        models,
+        modelsLoading,
+      }}
     >
       {children}
     </ManufacturerDetailContext.Provider>

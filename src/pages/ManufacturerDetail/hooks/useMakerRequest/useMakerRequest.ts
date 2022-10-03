@@ -5,7 +5,7 @@ import useAxios from 'axios-hooks';
 import { useMakerRequestProps } from './types';
 
 export const useMakerRequest = (id?: number): useMakerRequestProps => {
-  const [{ data }, request] = useAxios(`/vehicles/GetMakeForManufacturer/${id as number}?format=json`, {
+  const [{ data, loading }, request] = useAxios(`/vehicles/GetMakeForManufacturer/${id as number}?format=json`, {
     manual: true,
   });
 
@@ -17,5 +17,6 @@ export const useMakerRequest = (id?: number): useMakerRequestProps => {
 
   return {
     data: data?.Results,
+    loading,
   };
 };

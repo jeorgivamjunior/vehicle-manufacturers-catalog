@@ -1,2 +1,3 @@
 export * from './Detail';
-export * from './Makers';
+export * from './MakerList';
+export * from './ModelList';

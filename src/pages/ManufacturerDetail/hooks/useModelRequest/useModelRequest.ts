@@ -5,7 +5,7 @@ import useAxios from 'axios-hooks';
 import { useModelRequestProps } from './types';
 
 export const useModelRequest = (id?: number): useModelRequestProps => {
-  const [{ data }, request] = useAxios(`/vehicles/GetModelsForMakeId/${id as number}?format=json`, {
+  const [{ data, loading }, request] = useAxios(`/vehicles/GetModelsForMakeId/${id as number}?format=json`, {
     manual: true,
   });
 
@@ -17,5 +17,6 @@ export const useModelRequest = (id?: number): useModelRequestProps => {
 
   return {
     data: data?.Results,
+    loading,
   };
 };
