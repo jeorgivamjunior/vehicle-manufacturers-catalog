@@ -14,6 +14,7 @@ export const useModal = (): useModalProps => {
   const setComponent = (component: React.ReactNode): void => {
     configureComponent(component);
   };
+
   return {
     openModal: toggleOpen,
     closeModal: toggleOpen,
