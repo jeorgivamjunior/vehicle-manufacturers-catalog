@@ -1,0 +1,1 @@
+export { ManufacturerGrid } from './ManufacturerGrid';

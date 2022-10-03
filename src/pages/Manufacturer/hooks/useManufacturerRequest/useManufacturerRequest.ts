@@ -5,17 +5,25 @@ import useAxios from 'axios-hooks';
 import { ManufacturerResponse, useManufacturerRequestProps } from './types';
 
 export const useManufacturerRequest = (): useManufacturerRequestProps => {
-  const [data, setData] = useState<ManufacturerResponse[]>([]);
-  const [{ data: response, loading }] = useAxios('/vehicles/GetAllManufacturers?format=json');
+  const [page, setPage] = useState(0);
+  const [list, setList] = useState<ManufacturerResponse[]>([]);
+  const [{ data, loading }] = useAxios(`/vehicles/GetAllManufacturers?format=json&page=${page + 1}`);
 
   useEffect(() => {
-    if (!response) return;
+    if (!data) return;
 
-    setData(response.Results.map((item: ManufacturerResponse) => ({ ...item, id: item.Mfr_ID })));
-  }, [response]);
+    setList(data.Results.map((item: ManufacturerResponse) => ({ ...item, id: item.Mfr_ID })));
+  }, [data]);
+
+  const handlePageChange = (_: React.ChangeEvent<unknown>, newPage: number): void => {
+    setPage(newPage - 1);
+  };
 
   return {
-    data,
+    data: list,
+    count: data?.Count,
+    page,
+    handlePageChange,
     loading,
   };
 };

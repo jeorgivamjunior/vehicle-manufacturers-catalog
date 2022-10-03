@@ -6,5 +6,8 @@ export interface ManufacturerResponse {
 
 export interface useManufacturerRequestProps {
   data: ManufacturerResponse[];
+  count: number;
   loading: boolean;
+  handlePageChange: (_: React.ChangeEvent<unknown>, page: number) => void;
+  page: number;
 }
