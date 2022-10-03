@@ -1,21 +1,25 @@
 import { createContext, FC, PropsWithChildren, useState } from 'react';
 
 import { ManufacturerProps } from '../../../../types';
-import { useManufacturerRequest } from '../../hooks';
+import { useMakerRequest, useModelRequest } from '../../hooks';
+import { ManufacturerDetailContextProviderProps } from './types';
 
-export const ManufacturerDetailContext = createContext<ReturnType<any>>({} as any);
+export const ManufacturerDetailContext = createContext<ManufacturerDetailContextProviderProps>({} as any);
 
 export const ManufacturerDetailContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [manufacturer, setManufacturer] = useState<ManufacturerProps>();
+  const [makerId, setMakerId] = useState<number>();
 
-  console.log('manufacturer', manufacturer);
-
-  const response = useManufacturerRequest();
+  const { data: makers } = useMakerRequest(manufacturer?.Mfr_ID);
+  const { data: models } = useModelRequest(makerId);
 
   const handleManufacturerChange = (manufacturer: ManufacturerProps): void => setManufacturer(manufacturer);
+  const handleMakerChange = (makerId: number): void => setMakerId(makerId);
 
   return (
-    <ManufacturerDetailContext.Provider value={{ handleManufacturerChange, manufacturer }}>
+    <ManufacturerDetailContext.Provider
+      value={{ handleManufacturerChange, manufacturer, makers, handleMakerChange, models }}
+    >
       {children}
     </ManufacturerDetailContext.Provider>
   );

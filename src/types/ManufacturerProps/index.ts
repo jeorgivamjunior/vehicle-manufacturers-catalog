@@ -1,1 +1,1 @@
-export { ManufacturerProps } from './ManufacturerProps';
+export * from './ManufacturerProps';

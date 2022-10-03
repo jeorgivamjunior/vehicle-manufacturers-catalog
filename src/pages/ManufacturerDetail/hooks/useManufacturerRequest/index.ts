@@ -1,1 +1,0 @@
-export { useManufacturerRequest } from './useManufacturerRequest';
