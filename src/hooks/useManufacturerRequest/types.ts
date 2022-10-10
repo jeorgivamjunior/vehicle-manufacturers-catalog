@@ -1,4 +1,4 @@
-import { ManufacturerProps } from '../../../../types';
+import { ManufacturerProps } from '../../types';
 
 export interface useManufacturerRequestProps {
   data: ManufacturerProps[];

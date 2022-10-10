@@ -1,2 +1,2 @@
+export * from './ManufacturerGrid';
 export * from './Pagination';
-export * from './ViewButton';

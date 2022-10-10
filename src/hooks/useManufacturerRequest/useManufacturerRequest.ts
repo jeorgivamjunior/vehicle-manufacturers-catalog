@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import useAxios from 'axios-hooks';
 
-import { ManufacturerProps } from '../../../../types';
+import { ManufacturerProps } from '../../types';
 import { useManufacturerRequestProps } from './types';
 
 export const useManufacturerRequest = (): useManufacturerRequestProps => {

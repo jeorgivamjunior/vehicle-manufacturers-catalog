@@ -3,9 +3,9 @@ import { FC, useContext } from 'react';
 import { LinearProgress } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
-import { ManufacturerContext } from '../../contexts';
+import { ManufacturerContext } from '../../../../contexts';
+import { ManufacturerDetailModalButton } from '../../../ManufacturerDetail';
 import { Pagination } from '../Pagination';
-import { ViewButton } from '../ViewButton';
 import { GridContainer } from './styled';
 
 export const ManufacturerGrid: FC = () => {
@@ -30,7 +30,7 @@ export const ManufacturerGrid: FC = () => {
       field: 'view',
       headerName: 'View',
       type: 'actions',
-      renderCell: ViewButton,
+      renderCell: ManufacturerDetailModalButton,
     },
   ];
 

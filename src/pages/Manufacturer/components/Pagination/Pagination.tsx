@@ -1,18 +1,15 @@
-import { FC, useContext } from 'react';
+import { FC, ReactElement, useContext } from 'react';
 
-import { Pagination as MuiPagination, PaginationItem } from '@mui/material';
-import { useGridApiContext, useGridSelector, gridPageSelector, gridPageCountSelector } from '@mui/x-data-grid';
+import { Pagination as MuiPagination, PaginationItem, PaginationRenderItemParams } from '@mui/material';
 
-import { ManufacturerContext } from '../../contexts';
+import { ManufacturerContext } from '../../../../contexts';
 
 export const Pagination: FC = () => {
   const { handlePageChange } = useContext(ManufacturerContext);
 
-  const apiRef = useGridApiContext();
-  const page = useGridSelector(apiRef, gridPageSelector);
-  const pageCount = useGridSelector(apiRef, gridPageCountSelector);
-
-  return (
-    <MuiPagination onChange={handlePageChange} renderItem={(item) => <PaginationItem {...item} disabled={false} />} />
+  const Renderitem = (item: PaginationRenderItemParams): ReactElement => (
+    <PaginationItem {...item} disabled={false} />
   );
+
+  return <MuiPagination onChange={handlePageChange} renderItem={Renderitem} />;
 };
